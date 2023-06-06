@@ -8,6 +8,8 @@ Version python: 3.8
 
 import random
 
+######################################## PRIMERA PARTE
+
 n = 50  # Longitud deseada de la lista
 elementos = ["bueno", "malo", "mas o menos"]  # Elementos posibles
 

@@ -1,6 +1,7 @@
 import pymysql as mysql
 from sshtunnel import SSHTunnelForwarder
 import pandas as pd
+from datetime import datetime
 import json
 
 
@@ -69,3 +70,18 @@ class DatabaseConnection:
         except sqlite3.Error as error:
             print("Error al obtener los datos:", error)
             return None'''
+
+
+def str2date(texto_fecha):
+    fecha = None
+    try:
+        fecha = datetime.strptime(texto_fecha, '%Y-%m-%d')
+    except:
+        try:
+            fecha = datetime.strptime(texto_fecha, '%Y-%m-%d %H:%M')
+        except:
+            try:
+                fecha = datetime.strptime(texto_fecha, '%Y-%m-%dT%H:%M')
+            except Exception as e:
+                print("Error: " + str(e))
+    return fecha
